@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 public class FactoryColor {
 	public static Color createColor(String colorName) throws Exception {
 		JSONObject filePaths = ManageJson.getSettingColors();
-		String path = filePaths.get(colorName).toString();
+		String path = filePaths.get(colorName.toUpperCase()).toString();
 
 		Class<?> colorClass = Class.forName(path);
 		Object colorInstance = colorClass.newInstance();
