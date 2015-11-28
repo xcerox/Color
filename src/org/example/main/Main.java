@@ -1,11 +1,11 @@
-package org.example.principal;
+package org.example.main;
 
 import java.util.Scanner;
 
 import org.example.color.interfaces.Color;
 import org.example.color.util.FactoryColor;
 
-public class Run {
+public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Escribe un color");
