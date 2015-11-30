@@ -1,28 +1,23 @@
 package org.example.color.util;
 
+import org.example.exception.NotFindException;
 import org.example.interfaces.Color;
 import org.example.interfaces.LoadJson;
 import org.json.simple.JSONObject;
 
+/**
+ * @author J.Reyes<ing.jairoreyes@gmail.com> Factoria de Colores
+ */
 public class FactoryColor {
 
-	private LoadJson loader;
 
-	public FactoryColor(LoadJson load)
-	{
-		this.loader = load;
-	}
-
-	public Color createColor(String colorName) throws Exception {
-		JSONObject filePaths = loader.getJson();
-		String path = filePaths.get(colorName.toUpperCase()).toString();
-
+	/**
+	 * @param colorName
+	 * @return new Color object from path;
+	 * @throws Exception
+	 */
+	public static Color create(String path) throws Exception {
 		Class<?> colorClass = Class.forName(path);
-		Object colorInstance = colorClass.newInstance();
-
-		if (colorInstance instanceof Color)
-			return (Color) colorInstance;
-
-		throw new RuntimeException("No se encontro");
+		return (Color)colorClass.newInstance();
 	}
 }
