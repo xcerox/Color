@@ -2,7 +2,7 @@ package org.example.color;
 
 import java.util.Objects;
 
-import org.example.color.interfaces.Color;
+import org.example.interfaces.Color;
 
 public class White implements Color{
 	
